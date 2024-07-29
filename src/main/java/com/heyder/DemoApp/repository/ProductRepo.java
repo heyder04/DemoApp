@@ -9,11 +9,11 @@ import java.util.List;
 
 @Repository
 public interface ProductRepo extends JpaRepository<Product,Integer> {
-    @Query("SELECT p from Product p WHERE "+
+    @Query(value = "SELECT p from Product p WHERE "+
     "LOWER(p.name) like lower(concat('%', :keyword,'%' )) OR "+
     "LOWER(p.description) like lower(concat('%', :keyword,'%' )) OR "+
     "LOWER(p.brand) like lower(concat('%', :keyword,'%' )) OR "+
     "LOWER(p.category) like lower(concat('%', :keyword,'%' )) "
-    )
+    )     //query method,native query,
     List<Product> searchProducts(String keyword);
 }

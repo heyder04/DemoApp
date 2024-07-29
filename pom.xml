@@ -28,7 +28,7 @@
 	</scm>
 
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 
 	<dependencies>
@@ -67,6 +67,8 @@
 			<version>8.0.28</version>
 		</dependency>
 
+
+
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -86,6 +88,25 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>com.google.cloud.tools</groupId>-->
+<!--				<artifactId>jib-maven-plugin</artifactId>-->
+<!--				<version>3.3.0</version>-->
+<!--				<configuration>-->
+<!--					<from>-->
+<!--						<image>openjdk:17-alpine</image>-->
+<!--					</from>-->
+<!--					<to>-->
+<!--						<image>demoapp:0.0.1-SNAPSHOT</image>-->
+<!--					</to>-->
+<!--					<container>-->
+<!--						<ports>-->
+<!--							<port>8080</port>-->
+<!--						</ports>-->
+<!--						<format>OCI</format>-->
+<!--					</container>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 

@@ -1,0 +1,64 @@
+#version: '2'
+#
+#services:
+#
+#  app-1:
+#    image: 'heyder04/demoapp:latest'
+#    container_name: app-1
+#    hostname: app-1
+#    depends_on:
+#      - db
+#    environment:
+#      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/testDb?createDatabaseIfNotExist=true
+#      - SPRING_DATASOURCE_USERNAME=lotu
+#      - SPRING_DATASOURCE_PASSWORD=admin
+#      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+#    ports:
+#      - "8081:8080"
+#
+#  db:
+#    image: 'mysql:8.0'
+#    container_name: db
+#    hostname: db
+#    environment:
+#      MYSQL_ROOT_PASSWORD: rootpassword
+#      MYSQL_DATABASE: testDb
+#      MYSQL_USER: lotu
+#      MYSQL_PASSWORD: admin
+#    logging:
+#      options:
+#        max-size: 10m
+#        max-file: "3"
+#    ports:
+#      - '3303:3306'
+
+
+version: '2'
+
+services:
+
+  app-1:
+    image: 'heyder04/demoapp:latest'
+    container_name: app-1
+    hostname: app-1
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/testDb?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: lotu
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8081:8080"
+
+  db:
+    image: 'mysql:8.0'
+    container_name: db
+    hostname: db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: testDb
+      MYSQL_USER: lotu
+      MYSQL_PASSWORD: admin
+    ports:
+      - '3303:3306'
