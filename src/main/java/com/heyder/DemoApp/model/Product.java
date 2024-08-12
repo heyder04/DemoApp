@@ -12,6 +12,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
+@NamedStoredProcedureQueries({@NamedStoredProcedureQuery(name="firstProcedure",procedureName = "first_procedure")})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

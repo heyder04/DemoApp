@@ -1,5 +1,6 @@
 package com.heyder.DemoApp.contollers;
 
+import com.heyder.DemoApp.ProductDao;
 import com.heyder.DemoApp.model.Product;
 import com.heyder.DemoApp.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,18 @@ public class ProductController {
     @Autowired
     ProductService service;
 
+    @Autowired
+    ProductDao pDao;
+
     @GetMapping("/products")
     public ResponseEntity<List<Product>> getProducts(){
+//        return new ResponseEntity<>(pDao.getProducts(), HttpStatus.OK);
+
      return new ResponseEntity<>(service.getProducts(), HttpStatus.OK);
     }
 
     @PostMapping("/products")
-    public ResponseEntity<?> addProduct(@RequestPart  Product prod, @RequestPart MultipartFile imageFile){
+    public ResponseEntity<?> addProduct(@RequestPart  Product prod, @RequestPart(value = "imageFile",required = false) MultipartFile imageFile){
         System.out.println(prod);
        try {
            Product product1=service.addProduct(prod,imageFile);
